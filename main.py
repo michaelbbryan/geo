@@ -16,6 +16,10 @@ import geopandas as gpd
 import fiona
 import geoplot as gplt
 
+# Homegrown geo tools
+import getgeodata as gd
+import geocharting as gc
+
 # Install GDAL core and GDAL
 #     follow this bat file https://github.com/michaelbbryan/python_gdal_automated_windows/blob/main/Python_GDAL_x64.bat
 #     https://download.gisinternals.com/sdk/downloads/release-1930-x64-gdal-3-4-1-mapserver-7-6-4/gdal-304-1930-x64-core.msi
@@ -33,12 +37,14 @@ logging.warning('Initializing warning logging')
 logging.error('Initializing error logging')
 logging.critical('Initializing critical logging')
 
+# Turn if all off for now
+logger.propagate = False
+
+
 if __name__ == '__main__':
     # Start the clock
     start = datetime.datetime.now()
     logging.info("Starting", start)
-    stop = datetime.datetime.now()
-    logging.info("Step 1 finished. Duration:", stop - start)
 
     ###############################################
     # Download and unzip Census geodatabases
@@ -46,19 +52,22 @@ if __name__ == '__main__':
 
     workdir = "./"
 
-    zctadata = get_zipdir(
+    zctadata = gd.get_zipdir(
         zipdirurl="https://www2.census.gov/geo/tiger/TIGER_DP/2019ACS/",
         zipdirfile="ACS_2019_5YR_ZCTA.gdb.zip",
         destdir=workdir
     )
 
-    zctashapefile = get_zipdir(
+    stop = datetime.datetime.now()
+    logging.info("Get ZCTA finished. Duration:", stop - start)
+
+    zctashapefile = gd.get_zipdir(
         zipdirurl="https://www2.census.gov/geo/tiger/TIGER2019/ZCTA5/",
         zipdirfile="tl_2019_us_zcta510.zip",
         destdir=workdir
     )
 
-    bgdata = get_zipdir(
+    bgdata = gd.get_zipdir(
         zipdirurl="https://www2.census.gov/geo/tiger/TIGER_DP/2019ACS/",
         zipdirfile="ACS_2019_5YR_BG.gdb.zip",
         destdir=workdir
@@ -80,7 +89,7 @@ if __name__ == '__main__':
                     'tl_2019_54_bg.zip', 'tl_2019_55_bg.zip', 'tl_2019_56_bg.zip', 'tl_2019_60_bg.zip',
                     'tl_2019_66_bg.zip', 'tl_2019_69_bg.zip', 'tl_2019_72_bg.zip', 'tl_2019_78_bg.zip']
     for s in bgshapefiles:
-        get_zipdir(
+        gd.get_zipdir(
             zipdirurl="https://www2.census.gov/geo/tiger/TIGER2019/BG/",
             zipdirfile=s,
             destdir=workdir
@@ -91,5 +100,9 @@ if __name__ == '__main__':
     for s in bgshapefiles:
         bgshapes = bgshapes.append(gpd.read_file(workdir + s))
     print("   Loaded", len(bgshapefiles), "states covering", len(bgshapes.GEOID.unique()), "blockgroups")
+
+    # Try the choropleth
+    analyzing = pd.read_pickle("analyzing.pkl")
+    gc.choropleth(analyzing,"B01001e1","")
     print('Done.')
 
