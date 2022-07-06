@@ -1,16 +1,13 @@
-:: shell
-::for dir in ./*/     :: list directories in the form "/tmp/dirname/"
-::do
-::    echo "$dir}"    :: print everything after the final "/"
-::done
-  ::  pip freeze > requirements.txt
-  ::  conda env export > environment_droplet.yml  cd .
-:: DOS
+::@echo off
 
-for /d %%d in (geotools machinelearning naturallanguage) do (
-  cd %%d
-  pip freeze > requirements.txt
-  conda env export > environment.yml
-  cd ..
+for /d %%d in (base geotools machinelearning naturallanguage financialmarkets) do (
+  conda activate %%d
+  if errorlevel 0 (
+    echo %%d
+    cd %%d
+    pip freeze > requirements.txt
+    conda env export > environment.yml
+    cd ..
+    )
   )
 
