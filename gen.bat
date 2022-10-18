@@ -1,4 +1,4 @@
-::@echo off
+@echo off
 
 for /d %%d in (base geotools machinelearning naturallanguage financialmarkets) do (
   conda activate %%d
@@ -10,4 +10,7 @@ for /d %%d in (base geotools machinelearning naturallanguage financialmarkets) d
     cd ..
     )
   )
+
+:: pip -r requirements.txt
+:: conda env create -f environment.yml
 

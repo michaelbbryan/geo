@@ -45,11 +45,11 @@ clyent==1.2.2
 colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
 colorcet @ file:///tmp/build/80754af9/colorcet_1611168489822/work
 comtypes==1.1.10
-conda==4.13.0
+conda==22.9.0
 conda-build==3.21.8
 conda-content-trust @ file:///tmp/build/80754af9/conda-content-trust_1617045594566/work
 conda-pack @ file:///home/conda/feedstock_root/build_artifacts/conda-pack_1642622318035/work
-conda-package-handling @ file:///C:/ci/conda-package-handling_1649106011304/work
+conda-package-handling @ file:///C:/b/abs_81m11h_i4r/croots/recipe/conda-package-handling_1663598470202/work
 conda-repo-cli @ file:///tmp/build/80754af9/conda-repo-cli_1620168426516/work
 conda-token @ file:///tmp/build/80754af9/conda-token_1620076980546/work
 conda-verify==3.4.2
@@ -191,6 +191,7 @@ pkginfo @ file:///tmp/build/80754af9/pkginfo_1643162084911/work
 plotly @ file:///opt/conda/conda-bld/plotly_1646671701182/work
 pluggy @ file:///C:/ci/pluggy_1648024580010/work
 poyo @ file:///tmp/build/80754af9/poyo_1617751526755/work
+prettytable @ file:///home/conda/feedstock_root/build_artifacts/prettytable_1651787307815/work
 prometheus-client @ file:///opt/conda/conda-bld/prometheus_client_1643788673601/work
 prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
 Protego @ file:///tmp/build/80754af9/protego_1598657180827/work
@@ -213,7 +214,7 @@ pyerfa @ file:///C:/ci/pyerfa_1621560974055/work
 pyflakes @ file:///tmp/build/80754af9/pyflakes_1617200973297/work
 Pygments @ file:///opt/conda/conda-bld/pygments_1644249106324/work
 PyHamcrest @ file:///tmp/build/80754af9/pyhamcrest_1615748656804/work
-PyJWT @ file:///home/conda/feedstock_root/build_artifacts/pyjwt_1652398519695/work
+PyJWT @ file:///home/conda/feedstock_root/build_artifacts/pyjwt_1663432570896/work
 pylint @ file:///C:/ci/pylint_1627536884966/work
 pyls-spyder==0.4.0
 PyNaCl @ file:///C:/ci/pynacl_1607612759007/work
@@ -252,6 +253,7 @@ rsa @ file:///tmp/build/80754af9/rsa_1614366226499/work
 Rtree @ file:///C:/ci/rtree_1618421015405/work
 ruamel-yaml-conda @ file:///C:/ci/ruamel_yaml_1616016898638/work
 s3transfer @ file:///tmp/build/80754af9/s3transfer_1626435152308/work
+saspy @ file:///home/conda/feedstock_root/build_artifacts/saspy_1660337717028/work
 scikit-image @ file:///C:/ci/scikit-image_1648214340990/work
 scikit-learn @ file:///C:/ci/scikit-learn_1642617276183/work
 scikit-learn-intelex==2021.20220215.102710
@@ -314,6 +316,7 @@ wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 webencodings==0.5.1
 websocket-client @ file:///C:/ci/websocket-client_1614804375980/work
 Werkzeug @ file:///opt/conda/conda-bld/werkzeug_1645628268370/work
+wget==3.2
 widgetsnbextension @ file:///C:/ci/widgetsnbextension_1644991377168/work
 win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
 win-unicode-console==0.5
