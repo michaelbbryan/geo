@@ -6,6 +6,7 @@ beautifulsoup4 @ file:///C:/ci/beautifulsoup4_1650293028159/work
 branca @ file:///home/conda/feedstock_root/build_artifacts/branca_1650311966802/work
 brotlipy==0.7.0
 Cartopy @ file:///D:/bld/cartopy_1661457904128/work
+CensusData==1.15.post1
 certifi @ file:///C:/b/abs_ac29jvt43w/croot/certifi_1665076682579/work/certifi
 cffi @ file:///C:/ci_310/cffi_1643036627027/work
 charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1644853463426/work

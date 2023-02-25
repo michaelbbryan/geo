@@ -1,6 +1,6 @@
 @echo off
 
-for /d %%d in (base geotools machinelearning naturallanguage financialmarkets) do (
+for /d %%d in (base geotools machinelearning naturallanguage financialmarkets dataengineering) do (
   conda activate %%d
   if errorlevel 0 (
     echo %%d

@@ -193,5 +193,6 @@ dependencies:
   - zstd=1.5.2=h19a0ad4_0
   - pip:
     - affine==2.3.1
+    - censusdata==1.15.post1
     - wget==3.2
 prefix: C:\Users\michael\anaconda3\envs\geotools

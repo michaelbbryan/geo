@@ -83,18 +83,21 @@ fsspec @ file:///opt/conda/conda-bld/fsspec_1647268051896/work
 future @ file:///C:/ci/future_1607568713721/work
 gensim @ file:///C:/ci/gensim_1646825438310/work
 glob2 @ file:///home/linux1/recipes/ci/glob2_1610991677669/work
-google-api-core @ file:///C:/ci/google-api-core-split_1613980333946/work
-google-auth @ file:///tmp/build/80754af9/google-auth_1626320605116/work
+google-api-core==2.11.0
+google-api-python-client==2.68.0
+google-auth==2.14.1
+google-auth-httplib2==0.1.0
 google-cloud-core @ file:///tmp/build/80754af9/google-cloud-core_1625077425256/work
 google-cloud-storage @ file:///tmp/build/80754af9/google-cloud-storage_1601307969662/work
 google-crc32c @ file:///C:/ci/google-crc32c_1613234249694/work
 google-resumable-media @ file:///tmp/build/80754af9/google-resumable-media_1624367812531/work
-googleapis-common-protos @ file:///C:/ci/googleapis-common-protos-feedstock_1617957814607/work
+googleapis-common-protos==1.57.0
 greenlet @ file:///C:/ci/greenlet_1628888275363/work
 grpcio @ file:///C:/ci/grpcio_1637590978642/work
 h5py @ file:///C:/ci/h5py_1637120894255/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///opt/conda/conda-bld/holoviews_1645454331194/work
+httplib2==0.21.0
 hvplot @ file:///tmp/build/80754af9/hvplot_1627305124151/work
 hyperlink @ file:///tmp/build/80754af9/hyperlink_1610130746837/work
 idna @ file:///tmp/build/80754af9/idna_1637925883363/work
@@ -195,7 +198,7 @@ prettytable @ file:///home/conda/feedstock_root/build_artifacts/prettytable_1651
 prometheus-client @ file:///opt/conda/conda-bld/prometheus_client_1643788673601/work
 prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
 Protego @ file:///tmp/build/80754af9/protego_1598657180827/work
-protobuf==3.19.1
+protobuf==4.21.10
 psutil @ file:///C:/ci/psutil_1612298199233/work
 psycopg2 @ file:///C:/ci/psycopg2_1612298766762/work
 ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
@@ -309,6 +312,7 @@ typed-ast @ file:///C:/ci/typed-ast_1624953797214/work
 typing_extensions @ file:///opt/conda/conda-bld/typing_extensions_1647553014482/work
 ujson @ file:///C:/ci/ujson_1648044223886/work
 Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work
+uritemplate==4.1.1
 urllib3 @ file:///C:/ci/urllib3_1650639883891/work
 w3lib @ file:///Users/ktietz/demo/mc3/conda-bld/w3lib_1629359764703/work
 watchdog @ file:///C:/ci/watchdog_1638367441841/work
