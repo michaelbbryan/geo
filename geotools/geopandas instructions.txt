@@ -1,0 +1,105 @@
+#
+# Cleanup any previous attempt
+#
+conda activate base
+jupyter kernelspec uninstall geotools
+conda remove --name geotools --all -y
+
+#
+# Install
+#
+conda create -n geotools -y
+conda activate geotools 
+conda config --env --add channels conda-forge
+conda config --env --set channel_priority strict
+conda config --set pip_interop_enabled True
+conda install --channel conda-forge  python=3.9 geopandas -y
+
+#
+# Confirm
+#
+#   a successful install should 
+#       set the GDAL environ variables
+#          GDAL_DATA=C:\Users\micha\anaconda3\Library\share\gdal
+#          GDAL_DRIVER_PATH=C:\Users\micha\anaconda3\Library\lib\gdalplugins
+#       add C:\Program Files\GDAL to the PATH
+#       set the PROJ env variable
+#          PROJ_DATA=C:\Users\micha\anaconda3\Library\share\proj
+
+# 
+# Test
+#
+# Get a geo database from https://www2.census.gov/geo/tiger/TIGER_DP/2021ACS/
+
+import pandas as pd
+import geopandas as gpd
+import fiona
+from datetime import datetime
+
+print("Imports done")
+
+start = datetime.now()
+
+gdb_file = "D:\\Open Environments\\data\\census\\tiger\\tl_2019_us_county"
+
+layers = fiona.listlayers(gdb_file)
+print("fiona test",layers)
+
+g_df = gpd.read_file(gdb_file, layer = layers[0])
+print("gdb test done",g_df.head())
+print("Duration:",str(datetime.now()-start))
+
+
+
+
+________________________________________________________________________________
+#
+# Other attempts
+#
+
+# install the external software the geopandas needs, rather than relying on the conda dependencies
+#    geopandas needs gdal & fiona
+#      gdal needs pyproj
+
+#
+# Install GDAL manually
+#
+	https://www.gisinternals.com/release.php
+	Click on the highest version, x64 link (eg release-1930-gdal-3-7-2-mapserver-8-0-1)
+	Click on the "core" package (eg gdal-3.7.2-1930-x64-core.msi)
+	Run it with all the defaults
+
+	Add to the PATH, "%path%;C:\Program Files\GDAL;
+	Add GDAL_DATA "C:\Program Files\GDAL\gdal-data"
+	Add GDAL_DRIVER_PATH "C:\Program Files\GDAL\gdalplugins"
+
+#
+# Install pyproj, which gdal needs
+#
+pip install pyproj
+At the SYSTEM level, add the envar 
+        installed as base env shared        PROJ_LIB=C:\Users\micha\anaconda3\Library\share\proj
+        installed within the geotools env   PROJ_LIB=C:\Users\micha\anaconda3\envs\geotools\Library\share\proj
+
+Reboot
+You should see 
+	_CONDA_SET_GDAL_DATA=C:\Program Files\GDAL\gdal-data
+	_CONDA_SET_GDAL_DRIVER_PATH=C:\Program Files\GDAL\gdalplugins
+	_CONDA_SET_PROJ_LIB=C:\Program Files\GDAL\projlib
+
+ipython kernel install --user --name=geotools
+
+#
+import geopandas as gpd
+	import shapely
+		ImportError: DLL load failed while importing lib: The specified procedure could not be found.
+
+	this error suggests that shapely needs geos and gdal
+		hypothesis: conda geopandas install doesnt work fully on Windows, maybe it does on Ubuntu
+-------------------------------
+attempting to do this using pip
+# first using conda to manage the enviroment
+
+
+
+
