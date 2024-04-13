@@ -2,7 +2,7 @@
 # Cleanup any previous attempt
 #
 conda activate base
-jupyter kernelspec uninstall geotools
+jupyter kernelspec uninstall geotools -y
 conda remove --name geotools --all -y
 
 #
@@ -13,7 +13,8 @@ conda activate geotools
 conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
 conda config --set pip_interop_enabled True
-conda install --channel conda-forge  python=3.9 geopandas -y
+conda install --channel conda-forge python=3.9 geopandas pandas jupyter ipykernel -y
+python -m ipykernel install --user --name=geotools
 
 #
 # Confirm
@@ -35,22 +36,19 @@ import pandas as pd
 import geopandas as gpd
 import fiona
 from datetime import datetime
-
 print("Imports done")
-
 start = datetime.now()
-
 gdb_file = "D:\\Open Environments\\data\\census\\tiger\\tl_2019_us_county"
-
 layers = fiona.listlayers(gdb_file)
 print("fiona test",layers)
-
 g_df = gpd.read_file(gdb_file, layer = layers[0])
 print("gdb test done",g_df.head())
 print("Duration:",str(datetime.now()-start))
 
 
-
+#
+# See the environment named "foundation" to get additional basic packages not usually included in a new conda env
+#
 
 ________________________________________________________________________________
 #
